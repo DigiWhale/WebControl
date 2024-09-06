@@ -243,7 +243,7 @@ class SerialPortThread(MakesmithInitFuncs):
         self.weAreBufferingLines = bool(int(self.data.config.getValue("Maslow Settings", "bufferOn")) )
 
         try:
-            self.data.comport = self.data.config.getValue("Maslow Settings", "COMport")
+            self.data.comport = "/dev/ttyACM0"
             connectMessage = "Trying to connect to controller on " +self.data.comport
             self.data.console_queue.put(connectMessage)
             self.serialInstance = serial.Serial(
